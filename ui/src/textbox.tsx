@@ -15,7 +15,6 @@
 import * as Fluent from '@fluentui/react'
 import React from 'react'
 import { B, bond, debounce, Id, qd, S } from './qd'
-import { displayMixin } from './theme'
 
 /**
  * Create a text box.
@@ -57,8 +56,6 @@ export interface Textbox {
   trigger?: B
   /** The height of the text box, e.g. '100px'. Applicable only if `multiline` is true. */
   height?: S
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
   /** An optional tooltip message displayed when a user clicks the help icon to the right of the component. */
   tooltip?: S
 }
@@ -78,7 +75,6 @@ export const
         ? (
           <Fluent.MaskedTextField
             data-test={m.name}
-            style={displayMixin(m.visible)}
             label={m.label}
             defaultValue={m.value}
             mask={m.mask}
@@ -92,7 +88,6 @@ export const
         : (
           <Fluent.TextField
             data-test={m.name}
-            style={displayMixin(m.visible)}
             styles={m.multiline && m.height ? { fieldGroup: { height: m.height } } : undefined}
             label={m.label}
             placeholder={m.placeholder}

@@ -17,7 +17,6 @@ import React from 'react'
 import { stylesheet } from 'typestyle'
 import { Component } from './form'
 import { B, bond, Dict, Id, qd, S } from './qd'
-import { displayMixin } from './theme'
 import { XToolTip } from './tooltip'
 
 /**
@@ -53,8 +52,6 @@ export interface Button {
   disabled?: B
   /** True if the button should be rendered as link text and not a standard button. */
   link?: B
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
   /** An optional tooltip message displayed when a user clicks the help icon to the right of the component. */
   tooltip?: S
 }
@@ -67,8 +64,6 @@ export interface Buttons {
   justify?: 'start' | 'end' | 'center' | 'between' | 'around'
   /** An identifying name for this component. */
   name?: S
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
 }
 
 
@@ -121,13 +116,13 @@ export const
         </XToolTip>
       ))
     return (
-      <div data-test={m.name} className={css.buttons} style={displayMixin(m.visible)}>
+      <div data-test={m.name} className={css.buttons}>
         <Fluent.Stack horizontal horizontalAlign={justifications[m.justify || '']} tokens={{ childrenGap: 10 }}>{children}</Fluent.Stack>
       </div>
     )
   },
   XStandAloneButton = ({ model: m }: { model: Button }) => (
-    <div className={css.buttons} style={displayMixin(m.visible)}>
+    <div className={css.buttons}>
       <XButton key={m.name} model={m}>{m.label}</XButton>
     </div>
   )

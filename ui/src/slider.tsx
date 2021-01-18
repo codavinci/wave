@@ -15,7 +15,6 @@
 import * as Fluent from '@fluentui/react'
 import React from 'react'
 import { B, bond, F, Id, qd, S } from './qd'
-import { displayMixin } from './theme'
 
 /**
  * Create a slider.
@@ -50,8 +49,6 @@ export interface Slider {
   disabled?: B
   /** True if the form should be submitted when the slider value changes. */
   trigger?: B
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
   /** An optional tooltip message displayed when a user clicks the help icon to the right of the component. */
   tooltip?: S
 }
@@ -68,7 +65,6 @@ export const
       render = () => (
         <Fluent.Slider
           data-test={m.name}
-          styles={{ root: displayMixin(m.visible) as Fluent.IStyle }}
           buttonProps={{ 'data-test': m.name } as any} // HACK: data-test does not work on root as of this version
           label={m.label}
           min={min}

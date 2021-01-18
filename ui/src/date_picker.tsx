@@ -15,7 +15,6 @@
 import * as Fluent from '@fluentui/react'
 import React from 'react'
 import { B, bond, Id, qd, S, U } from './qd'
-import { displayMixin } from './theme'
 
 /**
  * Create a date picker.
@@ -35,8 +34,6 @@ export interface DatePicker {
   disabled?: B
   /** True if the form should be submitted when the datepicker value changes. */
   trigger?: B
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
   /** An optional tooltip message displayed when a user clicks the help icon to the right of the component. */
   tooltip?: S
 }
@@ -68,7 +65,6 @@ export const
       render = () => (
         <Fluent.DatePicker
           data-test={m.name}
-          style={displayMixin(m.visible)}
           label={m.label}
           value={parseDate(value)}
           placeholder={m.placeholder}

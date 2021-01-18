@@ -14,8 +14,7 @@
 
 import * as Fluent from '@fluentui/react'
 import React from 'react'
-import { S, B } from './qd'
-import { displayMixin } from './theme'
+import { S } from './qd'
 
 /**
  * Create a message bar.
@@ -31,8 +30,6 @@ export interface MessageBar {
   text?: S
   /** An identifying name for this component. */
   name?: S
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
 }
 
 const
@@ -50,11 +47,6 @@ const
 export const
   XMessageBar = ({ model: m }: { model: MessageBar }) => (
     m.text?.length
-      ? (
-        <Fluent.MessageBar
-          data-test={m.name}
-          style={displayMixin(m.visible)}
-          messageBarType={toMessageBarType(m.type)} >{m.text}</Fluent.MessageBar>
-      )
+      ? <Fluent.MessageBar data-test={m.name} messageBarType={toMessageBarType(m.type)} >{m.text}</Fluent.MessageBar>
       : <div />
   )

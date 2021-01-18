@@ -34,7 +34,7 @@ import { MessageBar, XMessageBar } from './message_bar'
 import { Picker, XPicker } from './picker'
 import { Visualization, XVisualization } from './plot'
 import { Progress, XProgress } from './progress'
-import { B, bond, Card, Packed, S, unpack, xid } from './qd'
+import { B, bond, Card, Packed, S, unpack, xid, U } from './qd'
 import { RangeSlider, XRangeSlider } from './range_slider'
 import { Separator, XSeparator } from './separator'
 import { Slider, XSlider } from './slider'
@@ -159,11 +159,6 @@ const
       display: 'flex',
       flexDirection: 'column',
       flexGrow: 1,
-      $nest: {
-        '>*:not(:first-child)': {
-          marginTop: 10
-        },
-      }
     },
     horizontal: {
       display: 'flex',
@@ -195,7 +190,26 @@ export enum XComponentAlignment { Top, Left, Right }
 export const
   XComponents = ({ items, alignment, inset }: { items: Component[], alignment?: XComponentAlignment, inset?: B }) => {
     const
-      components = items.map(m => <XComponent key={xid()} model={m} />),
+      components = items.map((m: any, i) => {
+        const
+          // All form items are wrapped by their component name (first and only prop of "m").
+          visible = m[Object.keys(m)[0]].visible ?? true,
+          // Remove margin for VISUALLY first (not first in DOM) element.
+          hasTopMargin = (i: U): B => {
+            if (i < 0) return false
+            const
+              item = items[i] as any,
+              visible = item[Object.keys(item)[0]].visible ?? true
+            return visible || hasTopMargin(i - 1)
+          },
+          visibleStyles: React.CSSProperties = visible ? {} : { visibility: 'hidden', height: 0 }
+
+        return (
+          <div key={xid()} data-test={`form-item-${i}`} style={{ marginTop: visible && hasTopMargin(i - 1) ? 10 : 0, ...visibleStyles }}>
+            <XComponent model={m} />
+          </div>
+        )
+      }),
       className = alignment === XComponentAlignment.Left
         ? clas(css.horizontal, css.horizontalLeft, inset ? css.inset : '')
         : alignment === XComponentAlignment.Right
@@ -214,12 +228,12 @@ export const
 
 const
   XComponent = ({ model: m }: { model: Component }) => {
-    if (m.text) return <XToolTip content={m.text.tooltip} expand={false}><XText name={m.text.name} content={m.text.content} size={m.text.size} visibility={m.text.visible} /></XToolTip>
-    if (m.text_xl) return <XToolTip content={m.text_xl.tooltip} expand={false}><XText name={m.text_xl.name} content={m.text_xl.content} size='xl' commands={m.text_xl.commands} visibility={m.text_xl.visible} /></XToolTip>
-    if (m.text_l) return <XToolTip content={m.text_l.tooltip} expand={false}><XText name={m.text_l.name} content={m.text_l.content} size='l' commands={m.text_l.commands} visibility={m.text_l.visible} /></XToolTip>
-    if (m.text_m) return <XToolTip content={m.text_m.tooltip} expand={false}><XText name={m.text_m.name} content={m.text_m.content} visibility={m.text_m.visible} /></XToolTip>
-    if (m.text_s) return <XToolTip content={m.text_s.tooltip} expand={false}><XText name={m.text_s.name} content={m.text_s.content} size='s' visibility={m.text_s.visible} /></XToolTip>
-    if (m.text_xs) return <XToolTip content={m.text_xs.tooltip} expand={false}><XText name={m.text_xs.name} content={m.text_xs.content} size='xs' visibility={m.text_xs.visible} /></XToolTip>
+    if (m.text) return <XToolTip content={m.text.tooltip} expand={false}><XText name={m.text.name} content={m.text.content} size={m.text.size} /></XToolTip>
+    if (m.text_xl) return <XToolTip content={m.text_xl.tooltip} expand={false}><XText name={m.text_xl.name} content={m.text_xl.content} size='xl' commands={m.text_xl.commands} /></XToolTip>
+    if (m.text_l) return <XToolTip content={m.text_l.tooltip} expand={false}><XText name={m.text_l.name} content={m.text_l.content} size='l' commands={m.text_l.commands} /></XToolTip>
+    if (m.text_m) return <XToolTip content={m.text_m.tooltip} expand={false}><XText name={m.text_m.name} content={m.text_m.content} /></XToolTip>
+    if (m.text_s) return <XToolTip content={m.text_s.tooltip} expand={false}><XText name={m.text_s.name} content={m.text_s.content} size='s' /></XToolTip>
+    if (m.text_xs) return <XToolTip content={m.text_xs.tooltip} expand={false}><XText name={m.text_xs.name} content={m.text_xs.content} size='xs' /></XToolTip>
     if (m.label) return <XToolTip content={m.label.tooltip} expand={false}><XLabel model={m.label} /></XToolTip>
     if (m.link) return <XToolTip content={m.link.tooltip} expand={false}><XLink model={m.link} /></XToolTip>
     if (m.separator) return <XSeparator model={m.separator} />
@@ -275,4 +289,3 @@ export const
   })
 
 cards.register('form', View)
-

@@ -31,4 +31,53 @@ describe('Form.tsx', () => {
     const { queryByTestId } = render(<View {...formProps} />)
     expect(queryByTestId(name)).toBeInTheDocument()
   })
+
+  describe('Component spacing', () => {
+    const content = 'Text'
+
+    it('Should not add top margin to first visible element', () => {
+      const props = {
+        ...formProps,
+        state: {
+          items: [
+            { text: { content } },
+          ]
+        }
+      }
+      const { getByTestId } = render(<View {...props} />)
+      expect(getByTestId('form-item-0').style.marginTop).toBe('0px')
+    })
+
+    it('Should not add top margin if previous component is invisible and second becomes visually first', () => {
+      const props = {
+        ...formProps,
+        state: {
+          items: [
+            { text: { content, visible: false } },
+            { text: { content } },
+          ]
+        }
+      }
+      const { getByTestId } = render(<View {...props} />)
+      expect(getByTestId('form-item-0').style.marginTop).toBe('0px')
+      expect(getByTestId('form-item-1').style.marginTop).toBe('0px')
+    })
+
+    it('Should remove top margin to invisible components only', () => {
+      const props = {
+        ...formProps,
+        state: {
+          items: [
+            { text: { content } },
+            { text: { content } },
+            { text: { content, visible: false } },
+          ]
+        }
+      }
+      const { getByTestId } = render(<View {...props} />)
+      expect(getByTestId('form-item-0').style.marginTop).toBe('0px')
+      expect(getByTestId('form-item-1').style.marginTop).toBe('10px')
+      expect(getByTestId('form-item-2').style.marginTop).toBe('0px')
+    })
+  })
 })

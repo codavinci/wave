@@ -18,7 +18,7 @@ import { stylesheet } from 'typestyle'
 import { IconTableCellType, XIconTableCellType } from "./icon_table_cell_type"
 import { ProgressTableCellType, XProgressTableCellType } from "./progress_table_cell_type"
 import { B, bond, box, Dict, Id, qd, S, U } from './qd'
-import { displayMixin, rem, cssVar } from './theme'
+import { cssVar, rem } from './theme'
 
 /** Defines cell content to be rendered instead of a simple text. */
 interface TableCellType {
@@ -95,8 +95,6 @@ export interface Table {
   height?: S
   /** The names of the selected rows. If this parameter is set, multiple selections will be allowed (`multiple` is assumed to be `True`). */
   values?: S[]
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
   /** An optional tooltip message displayed when a user clicks the help icon to the right of the component. */
   tooltip?: S
 }
@@ -487,7 +485,7 @@ export const
         </>
       ),
       render = () => (
-        <div data-test={m.name} style={{ position: 'relative', height: computeHeight(), ...displayMixin(m.visible) }}>
+        <div data-test={m.name} style={{ position: 'relative', height: computeHeight() }}>
           <Fluent.Stack horizontal horizontalAlign='space-between' >
             {m.groupable && <Fluent.Dropdown data-test='groupby' label='Group by' selectedKey={groupByKeyB()} onChange={onGroupByChange} options={groupByOptions} styles={{ root: { width: 300 } }} />}
             {!!searchableKeys.length && <Fluent.TextField data-test='search' label='Search' onChange={onSearchChange} value={searchStrB()} styles={{ root: { width: '50%' } }} />}

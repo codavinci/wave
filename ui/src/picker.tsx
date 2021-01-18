@@ -16,7 +16,6 @@ import * as Fluent from '@fluentui/react'
 import React from 'react'
 import { Choice } from './choice_group'
 import { B, bond, box, Id, qd, S, U } from './qd'
-import { displayMixin } from './theme'
 
 /**
  * Create a picker.
@@ -36,8 +35,6 @@ export interface Picker {
   max_choices?: U
   /** Controls whether the picker should be disabled or not. */
   disabled?: B
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
   /** True if the form should be submitted when the picker value changes. */
   trigger?: B
   /** An optional tooltip message displayed when a user clicks the help icon to the right of the component. */
@@ -67,7 +64,7 @@ export const XPicker = bond(({ model: m }: { model: Picker }) => {
     onEmptyResolveSuggestions = () => tags,
     init = () => qd.args[m.name] = m.values || null,
     render = () => (
-      <div style={displayMixin(m.visible)}>
+      <>
         {m.label && <Fluent.Text>{m.label}</Fluent.Text>}
         <Fluent.TagPicker
           inputProps={{ 'data-test': m.name } as any} // HACK: data-test does not work on root as of this version
@@ -80,7 +77,7 @@ export const XPicker = bond(({ model: m }: { model: Picker }) => {
           disabled={m.disabled}
           onEmptyResolveSuggestions={onEmptyResolveSuggestions}
         />
-      </div>
+      </>
     )
 
   return { init, render, selectedTagsB }

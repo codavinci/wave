@@ -16,7 +16,7 @@ import * as Fluent from '@fluentui/react'
 import React from 'react'
 import { stylesheet } from 'typestyle'
 import { B, bond, Id, S, U } from './qd'
-import { displayMixin, rem } from './theme'
+import { rem } from './theme'
 
 /**
  * Create a step for a stepper.
@@ -39,8 +39,6 @@ export interface Stepper {
   name: Id
   /** The sequence of steps to be displayed. */
   items: Step[]
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
   /** An optional tooltip message displayed when a user clicks the help icon to the right of the component. */
   tooltip?: S
 }
@@ -93,7 +91,6 @@ export const
       ),
       render = () => (
         <Fluent.Stack
-          style={displayMixin(m.visible)}
           data-test={m.name}
           horizontal
           horizontalAlign='space-between'

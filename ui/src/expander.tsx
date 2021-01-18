@@ -17,7 +17,6 @@ import React from 'react'
 import { stylesheet } from 'typestyle'
 import { Component, XComponents } from './form'
 import { B, bond, box, Id, qd, S } from './qd'
-import { displayMixin } from './theme'
 
 /**
  * Creates a new expander.
@@ -33,8 +32,6 @@ export interface Expander {
   expanded?: B
   /** List of components to be hideable by the expander. */
   items?: Component[]
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
 }
 
 const
@@ -75,7 +72,7 @@ export const
           className = isOpenB() ? css.expanderOpen : css.expanderClosed
 
         return (
-          <div data-test={m.name} className={className} style={displayMixin(m.visible)}>
+          <div data-test={m.name} className={className}>
             <Fluent.Separator alignContent="start" styles={{ content: { paddingLeft: 0 } }}>
               <Fluent.ActionButton
                 title={actionTitle}

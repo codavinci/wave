@@ -299,28 +299,28 @@ ui_footer_card <- function(
 #' @param content The text content.
 #' @param size The font size of the text content.
 #'   One of 'xl', 'l', 'm', 's', 'xs'. See enum h2o_wave.ui.TextSize.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip Tooltip message.
 #' @param name An identifying name for this component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A Text instance.
 #' @export
 ui_text <- function(
   content,
   size = NULL,
-  visible = NULL,
   tooltip = NULL,
-  name = NULL) {
+  name = NULL,
+  visible = NULL) {
   .guard_scalar("content", "character", content)
   # TODO Validate size
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
   .guard_scalar("name", "character", name)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(text=list(
     content=content,
     size=size,
-    visible=visible,
     tooltip=tooltip,
-    name=name))
+    name=name,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -328,29 +328,29 @@ ui_text <- function(
 #' Create extra-large sized text content.
 #'
 #' @param content The text content.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip Tooltip message.
 #' @param commands Contextual menu commands for this component.
 #' @param name An identifying name for this component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A TextXl instance.
 #' @export
 ui_text_xl <- function(
   content,
-  visible = NULL,
   tooltip = NULL,
   commands = NULL,
-  name = NULL) {
+  name = NULL,
+  visible = NULL) {
   .guard_scalar("content", "character", content)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
   .guard_vector("commands", "h2oq_Command", commands)
   .guard_scalar("name", "character", name)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(text_xl=list(
     content=content,
-    visible=visible,
     tooltip=tooltip,
     commands=commands,
-    name=name))
+    name=name,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -358,29 +358,29 @@ ui_text_xl <- function(
 #' Create large sized text content.
 #'
 #' @param content The text content.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip Tooltip message.
 #' @param commands Contextual menu commands for this component.
 #' @param name An identifying name for this component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A TextL instance.
 #' @export
 ui_text_l <- function(
   content,
-  visible = NULL,
   tooltip = NULL,
   commands = NULL,
-  name = NULL) {
+  name = NULL,
+  visible = NULL) {
   .guard_scalar("content", "character", content)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
   .guard_vector("commands", "h2oq_Command", commands)
   .guard_scalar("name", "character", name)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(text_l=list(
     content=content,
-    visible=visible,
     tooltip=tooltip,
     commands=commands,
-    name=name))
+    name=name,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -388,25 +388,25 @@ ui_text_l <- function(
 #' Create medium sized text content.
 #'
 #' @param content The text content.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip Tooltip message.
 #' @param name An identifying name for this component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A TextM instance.
 #' @export
 ui_text_m <- function(
   content,
-  visible = NULL,
   tooltip = NULL,
-  name = NULL) {
+  name = NULL,
+  visible = NULL) {
   .guard_scalar("content", "character", content)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
   .guard_scalar("name", "character", name)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(text_m=list(
     content=content,
-    visible=visible,
     tooltip=tooltip,
-    name=name))
+    name=name,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -414,25 +414,25 @@ ui_text_m <- function(
 #' Create small sized text content.
 #'
 #' @param content The text content.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip Tooltip message.
 #' @param name An identifying name for this component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A TextS instance.
 #' @export
 ui_text_s <- function(
   content,
-  visible = NULL,
   tooltip = NULL,
-  name = NULL) {
+  name = NULL,
+  visible = NULL) {
   .guard_scalar("content", "character", content)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
   .guard_scalar("name", "character", name)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(text_s=list(
     content=content,
-    visible=visible,
     tooltip=tooltip,
-    name=name))
+    name=name,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -440,25 +440,25 @@ ui_text_s <- function(
 #' Create extra-small sized text content.
 #'
 #' @param content The text content.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip Tooltip message.
 #' @param name An identifying name for this component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A TextXs instance.
 #' @export
 ui_text_xs <- function(
   content,
-  visible = NULL,
   tooltip = NULL,
-  name = NULL) {
+  name = NULL,
+  visible = NULL) {
   .guard_scalar("content", "character", content)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
   .guard_scalar("name", "character", name)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(text_xs=list(
     content=content,
-    visible=visible,
     tooltip=tooltip,
-    name=name))
+    name=name,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -474,31 +474,31 @@ ui_text_xs <- function(
 #' @param label The text displayed on the label.
 #' @param required True if the field is required.
 #' @param disabled True if the label should be disabled.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip An optional tooltip message displayed when a user clicks the help icon to the right of the component.
 #' @param name An identifying name for this component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A Label instance.
 #' @export
 ui_label <- function(
   label,
   required = NULL,
   disabled = NULL,
-  visible = NULL,
   tooltip = NULL,
-  name = NULL) {
+  name = NULL,
+  visible = NULL) {
   .guard_scalar("label", "character", label)
   .guard_scalar("required", "logical", required)
   .guard_scalar("disabled", "logical", disabled)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
   .guard_scalar("name", "character", name)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(label=list(
     label=label,
     required=required,
     disabled=disabled,
-    visible=visible,
     tooltip=tooltip,
-    name=name))
+    name=name,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -550,31 +550,31 @@ ui_separator <- function(
 #' @param label The text displayed above the bar.
 #' @param caption The text displayed below the bar.
 #' @param value The progress, between 0.0 and 1.0, or -1 (default) if indeterminate.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip An optional tooltip message displayed when a user clicks the help icon to the right of the component.
 #' @param name An identifying name for this component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A Progress instance.
 #' @export
 ui_progress <- function(
   label,
   caption = NULL,
   value = NULL,
-  visible = NULL,
   tooltip = NULL,
-  name = NULL) {
+  name = NULL,
+  visible = NULL) {
   .guard_scalar("label", "character", label)
   .guard_scalar("caption", "character", caption)
   .guard_scalar("value", "numeric", value)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
   .guard_scalar("name", "character", name)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(progress=list(
     label=label,
     caption=caption,
     value=value,
-    visible=visible,
     tooltip=tooltip,
-    name=name))
+    name=name,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -632,8 +632,8 @@ ui_message_bar <- function(
 #' @param password True if the text box should hide text content.
 #' @param trigger True if the form should be submitted when the text value changes.
 #' @param height The height of the text box, e.g. '100px'. Applicable only if `multiline` is true.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A Textbox instance.
 #' @export
 ui_textbox <- function(
@@ -653,8 +653,8 @@ ui_textbox <- function(
   password = NULL,
   trigger = NULL,
   height = NULL,
-  visible = NULL,
-  tooltip = NULL) {
+  tooltip = NULL,
+  visible = NULL) {
   .guard_scalar("name", "character", name)
   .guard_scalar("label", "character", label)
   .guard_scalar("placeholder", "character", placeholder)
@@ -671,8 +671,8 @@ ui_textbox <- function(
   .guard_scalar("password", "logical", password)
   .guard_scalar("trigger", "logical", trigger)
   .guard_scalar("height", "character", height)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(textbox=list(
     name=name,
     label=label,
@@ -690,8 +690,8 @@ ui_textbox <- function(
     password=password,
     trigger=trigger,
     height=height,
-    visible=visible,
-    tooltip=tooltip))
+    tooltip=tooltip,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -717,8 +717,8 @@ ui_textbox <- function(
 #' @param indeterminate True if the selection is indeterminate (neither selected nor unselected).
 #' @param disabled True if the checkbox is disabled.
 #' @param trigger True if the form should be submitted when the checkbox value changes.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A Checkbox instance.
 #' @export
 ui_checkbox <- function(
@@ -728,16 +728,16 @@ ui_checkbox <- function(
   indeterminate = NULL,
   disabled = NULL,
   trigger = NULL,
-  visible = NULL,
-  tooltip = NULL) {
+  tooltip = NULL,
+  visible = NULL) {
   .guard_scalar("name", "character", name)
   .guard_scalar("label", "character", label)
   .guard_scalar("value", "logical", value)
   .guard_scalar("indeterminate", "logical", indeterminate)
   .guard_scalar("disabled", "logical", disabled)
   .guard_scalar("trigger", "logical", trigger)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(checkbox=list(
     name=name,
     label=label,
@@ -745,8 +745,8 @@ ui_checkbox <- function(
     indeterminate=indeterminate,
     disabled=disabled,
     trigger=trigger,
-    visible=visible,
-    tooltip=tooltip))
+    tooltip=tooltip,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -765,8 +765,8 @@ ui_checkbox <- function(
 #' @param value True if selected, False if unselected.
 #' @param disabled True if the checkbox is disabled.
 #' @param trigger True if the form should be submitted when the toggle value changes.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A Toggle instance.
 #' @export
 ui_toggle <- function(
@@ -775,23 +775,23 @@ ui_toggle <- function(
   value = NULL,
   disabled = NULL,
   trigger = NULL,
-  visible = NULL,
-  tooltip = NULL) {
+  tooltip = NULL,
+  visible = NULL) {
   .guard_scalar("name", "character", name)
   .guard_scalar("label", "character", label)
   .guard_scalar("value", "logical", value)
   .guard_scalar("disabled", "logical", disabled)
   .guard_scalar("trigger", "logical", trigger)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(toggle=list(
     name=name,
     label=label,
     value=value,
     disabled=disabled,
     trigger=trigger,
-    visible=visible,
-    tooltip=tooltip))
+    tooltip=tooltip,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -835,8 +835,8 @@ ui_choice <- function(
 #' @param choices The choices to be presented.
 #' @param required True if this field is required.
 #' @param trigger True if the form should be submitted when the selection changes.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A ChoiceGroup instance.
 #' @export
 ui_choice_group <- function(
@@ -846,16 +846,16 @@ ui_choice_group <- function(
   choices = NULL,
   required = NULL,
   trigger = NULL,
-  visible = NULL,
-  tooltip = NULL) {
+  tooltip = NULL,
+  visible = NULL) {
   .guard_scalar("name", "character", name)
   .guard_scalar("label", "character", label)
   .guard_scalar("value", "character", value)
   .guard_vector("choices", "h2oq_Choice", choices)
   .guard_scalar("required", "logical", required)
   .guard_scalar("trigger", "logical", trigger)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(choice_group=list(
     name=name,
     label=label,
@@ -863,8 +863,8 @@ ui_choice_group <- function(
     choices=choices,
     required=required,
     trigger=trigger,
-    visible=visible,
-    tooltip=tooltip))
+    tooltip=tooltip,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -878,8 +878,8 @@ ui_choice_group <- function(
 #' @param values The names of the selected choices.
 #' @param choices The choices to be presented.
 #' @param trigger True if the form should be submitted when the checklist value changes.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A Checklist instance.
 #' @export
 ui_checklist <- function(
@@ -888,23 +888,23 @@ ui_checklist <- function(
   values = NULL,
   choices = NULL,
   trigger = NULL,
-  visible = NULL,
-  tooltip = NULL) {
+  tooltip = NULL,
+  visible = NULL) {
   .guard_scalar("name", "character", name)
   .guard_scalar("label", "character", label)
   .guard_vector("values", "character", values)
   .guard_vector("choices", "h2oq_Choice", choices)
   .guard_scalar("trigger", "logical", trigger)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(checklist=list(
     name=name,
     label=label,
     values=values,
     choices=choices,
     trigger=trigger,
-    visible=visible,
-    tooltip=tooltip))
+    tooltip=tooltip,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -930,8 +930,8 @@ ui_checklist <- function(
 #' @param required True if this is a required field.
 #' @param disabled True if this field is disabled.
 #' @param trigger True if the form should be submitted when the dropdown value changes.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A Dropdown instance.
 #' @export
 ui_dropdown <- function(
@@ -944,8 +944,8 @@ ui_dropdown <- function(
   required = NULL,
   disabled = NULL,
   trigger = NULL,
-  visible = NULL,
-  tooltip = NULL) {
+  tooltip = NULL,
+  visible = NULL) {
   .guard_scalar("name", "character", name)
   .guard_scalar("label", "character", label)
   .guard_scalar("placeholder", "character", placeholder)
@@ -955,8 +955,8 @@ ui_dropdown <- function(
   .guard_scalar("required", "logical", required)
   .guard_scalar("disabled", "logical", disabled)
   .guard_scalar("trigger", "logical", trigger)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(dropdown=list(
     name=name,
     label=label,
@@ -967,8 +967,8 @@ ui_dropdown <- function(
     required=required,
     disabled=disabled,
     trigger=trigger,
-    visible=visible,
-    tooltip=tooltip))
+    tooltip=tooltip,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -992,8 +992,8 @@ ui_dropdown <- function(
 #' @param choices The choices to be presented.
 #' @param error Text to be displayed as an error below the text box.
 #' @param disabled True if this field is disabled.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A Combobox instance.
 #' @export
 ui_combobox <- function(
@@ -1004,8 +1004,8 @@ ui_combobox <- function(
   choices = NULL,
   error = NULL,
   disabled = NULL,
-  visible = NULL,
-  tooltip = NULL) {
+  tooltip = NULL,
+  visible = NULL) {
   .guard_scalar("name", "character", name)
   .guard_scalar("label", "character", label)
   .guard_scalar("placeholder", "character", placeholder)
@@ -1013,8 +1013,8 @@ ui_combobox <- function(
   .guard_vector("choices", "character", choices)
   .guard_scalar("error", "character", error)
   .guard_scalar("disabled", "logical", disabled)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(combobox=list(
     name=name,
     label=label,
@@ -1023,8 +1023,8 @@ ui_combobox <- function(
     choices=choices,
     error=error,
     disabled=disabled,
-    visible=visible,
-    tooltip=tooltip))
+    tooltip=tooltip,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -1052,8 +1052,8 @@ ui_combobox <- function(
 #' @param value The current value of the slider.
 #' @param disabled True if this field is disabled.
 #' @param trigger True if the form should be submitted when the slider value changes.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A Slider instance.
 #' @export
 ui_slider <- function(
@@ -1065,8 +1065,8 @@ ui_slider <- function(
   value = NULL,
   disabled = NULL,
   trigger = NULL,
-  visible = NULL,
-  tooltip = NULL) {
+  tooltip = NULL,
+  visible = NULL) {
   .guard_scalar("name", "character", name)
   .guard_scalar("label", "character", label)
   .guard_scalar("min", "numeric", min)
@@ -1075,8 +1075,8 @@ ui_slider <- function(
   .guard_scalar("value", "numeric", value)
   .guard_scalar("disabled", "logical", disabled)
   .guard_scalar("trigger", "logical", trigger)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(slider=list(
     name=name,
     label=label,
@@ -1086,8 +1086,8 @@ ui_slider <- function(
     value=value,
     disabled=disabled,
     trigger=trigger,
-    visible=visible,
-    tooltip=tooltip))
+    tooltip=tooltip,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -1104,8 +1104,8 @@ ui_slider <- function(
 #' @param step The difference between two adjacent values of the spinbox.
 #' @param value The current value of the spinbox.
 #' @param disabled True if this field is disabled.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A Spinbox instance.
 #' @export
 ui_spinbox <- function(
@@ -1116,8 +1116,8 @@ ui_spinbox <- function(
   step = NULL,
   value = NULL,
   disabled = NULL,
-  visible = NULL,
-  tooltip = NULL) {
+  tooltip = NULL,
+  visible = NULL) {
   .guard_scalar("name", "character", name)
   .guard_scalar("label", "character", label)
   .guard_scalar("min", "numeric", min)
@@ -1125,8 +1125,8 @@ ui_spinbox <- function(
   .guard_scalar("step", "numeric", step)
   .guard_scalar("value", "numeric", value)
   .guard_scalar("disabled", "logical", disabled)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(spinbox=list(
     name=name,
     label=label,
@@ -1135,8 +1135,8 @@ ui_spinbox <- function(
     step=step,
     value=value,
     disabled=disabled,
-    visible=visible,
-    tooltip=tooltip))
+    tooltip=tooltip,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -1151,8 +1151,8 @@ ui_spinbox <- function(
 #' @param value The date value in YYYY-MM-DD format.
 #' @param disabled True if this field is disabled.
 #' @param trigger True if the form should be submitted when the datepicker value changes.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A DatePicker instance.
 #' @export
 ui_date_picker <- function(
@@ -1162,16 +1162,16 @@ ui_date_picker <- function(
   value = NULL,
   disabled = NULL,
   trigger = NULL,
-  visible = NULL,
-  tooltip = NULL) {
+  tooltip = NULL,
+  visible = NULL) {
   .guard_scalar("name", "character", name)
   .guard_scalar("label", "character", label)
   .guard_scalar("placeholder", "character", placeholder)
   .guard_scalar("value", "character", value)
   .guard_scalar("disabled", "logical", disabled)
   .guard_scalar("trigger", "logical", trigger)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(date_picker=list(
     name=name,
     label=label,
@@ -1179,8 +1179,8 @@ ui_date_picker <- function(
     value=value,
     disabled=disabled,
     trigger=trigger,
-    visible=visible,
-    tooltip=tooltip))
+    tooltip=tooltip,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -1194,9 +1194,9 @@ ui_date_picker <- function(
 #' @param label Text to be displayed alongside the component.
 #' @param value The selected color (CSS-compatible string).
 #' @param choices A list of colors (CSS-compatible strings) to limit color choices to.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param trigger True if the form should be submitted when the color picker value changes.
 #' @param tooltip An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A ColorPicker instance.
 #' @export
 ui_color_picker <- function(
@@ -1204,24 +1204,24 @@ ui_color_picker <- function(
   label = NULL,
   value = NULL,
   choices = NULL,
-  visible = NULL,
   trigger = NULL,
-  tooltip = NULL) {
+  tooltip = NULL,
+  visible = NULL) {
   .guard_scalar("name", "character", name)
   .guard_scalar("label", "character", label)
   .guard_scalar("value", "character", value)
   .guard_vector("choices", "character", choices)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("trigger", "logical", trigger)
   .guard_scalar("tooltip", "character", tooltip)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(color_picker=list(
     name=name,
     label=label,
     value=value,
     choices=choices,
-    visible=visible,
     trigger=trigger,
-    tooltip=tooltip))
+    tooltip=tooltip,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -1250,8 +1250,8 @@ ui_color_picker <- function(
 #' @param primary True if the button should be rendered as the primary button in the set.
 #' @param disabled True if the button should be disabled.
 #' @param link True if the button should be rendered as link text and not a standard button.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A Button instance.
 #' @export
 ui_button <- function(
@@ -1262,8 +1262,8 @@ ui_button <- function(
   primary = NULL,
   disabled = NULL,
   link = NULL,
-  visible = NULL,
-  tooltip = NULL) {
+  tooltip = NULL,
+  visible = NULL) {
   .guard_scalar("name", "character", name)
   .guard_scalar("label", "character", label)
   .guard_scalar("caption", "character", caption)
@@ -1271,8 +1271,8 @@ ui_button <- function(
   .guard_scalar("primary", "logical", primary)
   .guard_scalar("disabled", "logical", disabled)
   .guard_scalar("link", "logical", link)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(button=list(
     name=name,
     label=label,
@@ -1281,8 +1281,8 @@ ui_button <- function(
     primary=primary,
     disabled=disabled,
     link=link,
-    visible=visible,
-    tooltip=tooltip))
+    tooltip=tooltip,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -1324,8 +1324,8 @@ ui_buttons <- function(
 #' @param max_file_size Maximum allowed size (Mb) per file. Defaults to no limit.
 #' @param max_size Maximum allowed size (Mb) for all files combined. Defaults to no limit.
 #' @param height The height of the file upload, e.g. '400px', '50%', etc.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A FileUpload instance.
 #' @export
 ui_file_upload <- function(
@@ -1336,8 +1336,8 @@ ui_file_upload <- function(
   max_file_size = NULL,
   max_size = NULL,
   height = NULL,
-  visible = NULL,
-  tooltip = NULL) {
+  tooltip = NULL,
+  visible = NULL) {
   .guard_scalar("name", "character", name)
   .guard_scalar("label", "character", label)
   .guard_scalar("multiple", "logical", multiple)
@@ -1345,8 +1345,8 @@ ui_file_upload <- function(
   .guard_scalar("max_file_size", "numeric", max_file_size)
   .guard_scalar("max_size", "numeric", max_size)
   .guard_scalar("height", "character", height)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(file_upload=list(
     name=name,
     label=label,
@@ -1355,8 +1355,8 @@ ui_file_upload <- function(
     max_file_size=max_file_size,
     max_size=max_size,
     height=height,
-    visible=visible,
-    tooltip=tooltip))
+    tooltip=tooltip,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -1493,8 +1493,8 @@ ui_table_row <- function(
 #' @param resettable Indicates whether a Reset button should be displayed to reset search / filter / group-by values to their defaults. Defaults to False.
 #' @param height The height of the table, e.g. '400px', '50%', etc.
 #' @param values The names of the selected rows. If this parameter is set, multiple selections will be allowed (`multiple` is assumed to be `True`).
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A Table instance.
 #' @export
 ui_table <- function(
@@ -1507,8 +1507,8 @@ ui_table <- function(
   resettable = NULL,
   height = NULL,
   values = NULL,
-  visible = NULL,
-  tooltip = NULL) {
+  tooltip = NULL,
+  visible = NULL) {
   .guard_scalar("name", "character", name)
   .guard_vector("columns", "h2oq_TableColumn", columns)
   .guard_vector("rows", "h2oq_TableRow", rows)
@@ -1518,8 +1518,8 @@ ui_table <- function(
   .guard_scalar("resettable", "logical", resettable)
   .guard_scalar("height", "character", height)
   .guard_vector("values", "character", values)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(table=list(
     name=name,
     columns=columns,
@@ -1530,8 +1530,8 @@ ui_table <- function(
     resettable=resettable,
     height=height,
     values=values,
-    visible=visible,
-    tooltip=tooltip))
+    tooltip=tooltip,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -1547,10 +1547,10 @@ ui_table <- function(
 #' @param disabled True if the link should be disabled.
 #' @param download True if the link should be used for file download.
 #' @param button True if the link should be rendered as a button.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param target Where to display the link. Setting this to an empty string or `'_blank'` opens the link in a new tab or window.
 #' @param tooltip An optional tooltip message displayed when a user clicks the help icon to the right of the component.
 #' @param name An identifying name for this component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A Link instance.
 #' @export
 ui_link <- function(
@@ -1559,29 +1559,29 @@ ui_link <- function(
   disabled = NULL,
   download = NULL,
   button = NULL,
-  visible = NULL,
   target = NULL,
   tooltip = NULL,
-  name = NULL) {
+  name = NULL,
+  visible = NULL) {
   .guard_scalar("label", "character", label)
   .guard_scalar("path", "character", path)
   .guard_scalar("disabled", "logical", disabled)
   .guard_scalar("download", "logical", download)
   .guard_scalar("button", "logical", button)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("target", "character", target)
   .guard_scalar("tooltip", "character", tooltip)
   .guard_scalar("name", "character", name)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(link=list(
     label=label,
     path=path,
     disabled=disabled,
     download=download,
     button=button,
-    visible=visible,
     target=target,
     tooltip=tooltip,
-    name=name))
+    name=name,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -1613,27 +1613,27 @@ ui_tab <- function(
 #' @param name An identifying name for this component.
 #' @param value The name of the tab to select.
 #' @param items The tabs in this tab bar.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param link True if tabs should be rendered as links instead of buttons.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A Tabs instance.
 #' @export
 ui_tabs <- function(
   name,
   value = NULL,
   items = NULL,
-  visible = NULL,
-  link = NULL) {
+  link = NULL,
+  visible = NULL) {
   .guard_scalar("name", "character", name)
   .guard_scalar("value", "character", value)
   .guard_vector("items", "h2oq_Tab", items)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("link", "logical", link)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(tabs=list(
     name=name,
     value=value,
     items=items,
-    visible=visible,
-    link=link))
+    link=link,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -1762,9 +1762,9 @@ ui_template <- function(
 #' @param values The names of the selected choices.
 #' @param max_choices Maximum number of selectable choices. Defaults to no limit.
 #' @param disabled Controls whether the picker should be disabled or not.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param trigger True if the form should be submitted when the picker value changes.
 #' @param tooltip An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A Picker instance.
 #' @export
 ui_picker <- function(
@@ -1774,18 +1774,18 @@ ui_picker <- function(
   values = NULL,
   max_choices = NULL,
   disabled = NULL,
-  visible = NULL,
   trigger = NULL,
-  tooltip = NULL) {
+  tooltip = NULL,
+  visible = NULL) {
   .guard_scalar("name", "character", name)
   .guard_vector("choices", "h2oq_Choice", choices)
   .guard_scalar("label", "character", label)
   .guard_vector("values", "character", values)
   .guard_scalar("max_choices", "numeric", max_choices)
   .guard_scalar("disabled", "logical", disabled)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("trigger", "logical", trigger)
   .guard_scalar("tooltip", "character", tooltip)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(picker=list(
     name=name,
     choices=choices,
@@ -1793,9 +1793,9 @@ ui_picker <- function(
     values=values,
     max_choices=max_choices,
     disabled=disabled,
-    visible=visible,
     trigger=trigger,
-    tooltip=tooltip))
+    tooltip=tooltip,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -1815,8 +1815,8 @@ ui_picker <- function(
 #' @param max_value The upper bound of the selected range.
 #' @param disabled True if this field is disabled.
 #' @param trigger True if the form should be submitted when the slider value changes.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A RangeSlider instance.
 #' @export
 ui_range_slider <- function(
@@ -1829,8 +1829,8 @@ ui_range_slider <- function(
   max_value = NULL,
   disabled = NULL,
   trigger = NULL,
-  visible = NULL,
-  tooltip = NULL) {
+  tooltip = NULL,
+  visible = NULL) {
   .guard_scalar("name", "character", name)
   .guard_scalar("label", "character", label)
   .guard_scalar("min", "numeric", min)
@@ -1840,8 +1840,8 @@ ui_range_slider <- function(
   .guard_scalar("max_value", "numeric", max_value)
   .guard_scalar("disabled", "logical", disabled)
   .guard_scalar("trigger", "logical", trigger)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(range_slider=list(
     name=name,
     label=label,
@@ -1852,8 +1852,8 @@ ui_range_slider <- function(
     max_value=max_value,
     disabled=disabled,
     trigger=trigger,
-    visible=visible,
-    tooltip=tooltip))
+    tooltip=tooltip,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -1885,24 +1885,24 @@ ui_step <- function(
 #'
 #' @param name An identifying name for this component.
 #' @param items The sequence of steps to be displayed.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param tooltip An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A Stepper instance.
 #' @export
 ui_stepper <- function(
   name,
   items,
-  visible = NULL,
-  tooltip = NULL) {
+  tooltip = NULL,
+  visible = NULL) {
   .guard_scalar("name", "character", name)
   .guard_vector("items", "h2oq_Step", items)
-  .guard_scalar("visible", "logical", visible)
   .guard_scalar("tooltip", "character", tooltip)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(stepper=list(
     name=name,
     items=items,
-    visible=visible,
-    tooltip=tooltip))
+    tooltip=tooltip,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -2171,8 +2171,8 @@ ui_plot <- function(
 #' @param width The width of the visualization. Defaults to 100%.
 #' @param height The hight of the visualization. Defaults to 300px.
 #' @param name An identifying name for this component.
-#' @param visible True if the component should be visible. Defaults to true.
 #' @param events The events to capture on this visualization.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A Visualization instance.
 #' @export
 ui_visualization <- function(
@@ -2181,23 +2181,23 @@ ui_visualization <- function(
   width = NULL,
   height = NULL,
   name = NULL,
-  visible = NULL,
-  events = NULL) {
+  events = NULL,
+  visible = NULL) {
   .guard_scalar("plot", "h2oq_Plot", plot)
   # TODO Validate data: Rec
   .guard_scalar("width", "character", width)
   .guard_scalar("height", "character", height)
   .guard_scalar("name", "character", name)
-  .guard_scalar("visible", "logical", visible)
   .guard_vector("events", "character", events)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(visualization=list(
     plot=plot,
     data=data,
     width=width,
     height=height,
     name=name,
-    visible=visible,
-    events=events))
+    events=events,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -2272,19 +2272,23 @@ ui_stat <- function(
 #' @param justify Specifies how to lay out the individual stats. Defaults to 'start'.
 #'   One of 'start', 'end', 'center', 'between', 'around'. See enum h2o_wave.ui.StatsJustify.
 #' @param inset Whether to display the stats with a contrasting background.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A Stats instance.
 #' @export
 ui_stats <- function(
   items,
   justify = NULL,
-  inset = NULL) {
+  inset = NULL,
+  visible = NULL) {
   .guard_vector("items", "h2oq_Stat", items)
   # TODO Validate justify
   .guard_scalar("inset", "logical", inset)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(stats=list(
     items=items,
     justify=justify,
-    inset=inset))
+    inset=inset,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
@@ -2295,19 +2299,23 @@ ui_stats <- function(
 #' @param justify Specifies how to lay out the individual components. Defaults to 'start'.
 #'   One of 'start', 'end'. See enum h2o_wave.ui.InlineJustify.
 #' @param inset Whether to display the components inset from the parent form, with a contrasting background.
+#' @param visible True if the component should be visible. Defaults to true.
 #' @return A Inline instance.
 #' @export
 ui_inline <- function(
   items,
   justify = NULL,
-  inset = NULL) {
+  inset = NULL,
+  visible = NULL) {
   .guard_vector("items", "h2oq_Component", items)
   # TODO Validate justify
   .guard_scalar("inset", "logical", inset)
+  .guard_scalar("visible", "logical", visible)
   .o <- list(inline=list(
     items=items,
     justify=justify,
-    inset=inset))
+    inset=inset,
+    visible=visible))
   class(.o) <- append(class(.o), c(.h2oq_obj, "h2oq_Component"))
   return(.o)
 }
