@@ -34,7 +34,7 @@ import { MessageBar, XMessageBar } from './message_bar'
 import { Picker, XPicker } from './picker'
 import { Visualization, XVisualization } from './plot'
 import { Progress, XProgress } from './progress'
-import { B, bond, Card, Packed, S, unpack, xid, U } from './qd'
+import { B, bond, Card, Packed, S, unpack, xid } from './qd'
 import { RangeSlider, XRangeSlider } from './range_slider'
 import { Separator, XSeparator } from './separator'
 import { Slider, XSlider } from './slider'
@@ -46,7 +46,7 @@ import { Tabs, XTabs } from './tabs'
 import { Template, XTemplate } from './template'
 import { Text, TextL, TextM, TextS, TextXl, TextXs, XText } from './text'
 import { Textbox, XTextbox } from './textbox'
-import { clas, margin, padding, cssVar } from './theme'
+import { clas, cssVar, padding } from './theme'
 import { Toggle, XToggle } from './toggle'
 import { XToolTip } from './tooltip'
 import { VegaVisualization, XVegaVisualization } from './vega'
@@ -159,29 +159,27 @@ const
       display: 'flex',
       flexDirection: 'column',
       flexGrow: 1,
+      $nest: {
+        '> [data-visible="true"] ~ div': {
+          marginTop: 10
+        },
+      }
     },
     horizontal: {
       display: 'flex',
       alignItems: 'center',
+      $nest: {
+        '> [data-visible="true"] ~ div': {
+          marginLeft: 25
+        }
+      }
     },
     inset: {
       background: cssVar('$page'),
       padding: padding(10, 15)
     },
-    horizontalLeft: {
-      $nest: {
-        '> *': {
-          margin: margin(0, 25, 0, 0),
-        }
-      }
-    },
     horizontalRight: {
       justifyContent: 'flex-end',
-      $nest: {
-        '> *': {
-          margin: margin(0, 0, 0, 25),
-        }
-      }
     },
   })
 
@@ -190,28 +188,19 @@ export enum XComponentAlignment { Top, Left, Right }
 export const
   XComponents = ({ items, alignment, inset }: { items: Component[], alignment?: XComponentAlignment, inset?: B }) => {
     const
-      components = items.map((m: any, i) => {
+      components = items.map((m: any) => {
         const
-          // All form items are wrapped by their component name (first and only prop of "m").
           visible = m[Object.keys(m)[0]].visible ?? true,
-          // Remove margin for VISUALLY first (not first in DOM) element.
-          hasTopMargin = (i: U): B => {
-            if (i < 0) return false
-            const
-              item = items[i] as any,
-              visible = item[Object.keys(item)[0]].visible ?? true
-            return visible || hasTopMargin(i - 1)
-          },
-          visibleStyles: React.CSSProperties = visible ? {} : { visibility: 'hidden', height: 0 }
+          visibleStyles: React.CSSProperties = visible ? {} : { visibility: 'hidden', height: 0, width: 0, margin: 0 }
 
         return (
-          <div key={xid()} data-test={`form-item-${i}`} style={{ marginTop: visible && hasTopMargin(i - 1) ? 10 : 0, ...visibleStyles }}>
+          <div key={xid()} data-visible={visible} style={visibleStyles}>
             <XComponent model={m} />
           </div>
         )
       }),
       className = alignment === XComponentAlignment.Left
-        ? clas(css.horizontal, css.horizontalLeft, inset ? css.inset : '')
+        ? clas(css.horizontal, inset ? css.inset : '')
         : alignment === XComponentAlignment.Right
           ? clas(css.horizontal, css.horizontalRight, inset ? css.inset : '')
           : css.vertical
