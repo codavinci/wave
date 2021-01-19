@@ -190,6 +190,7 @@ export const
     const
       components = items.map((m: any) => {
         const
+          // All form items are wrapped by their component name (first and only prop of "m").
           visible = m[Object.keys(m)[0]].visible ?? true,
           visibleStyles: React.CSSProperties = visible ? {} : { visibility: 'hidden', height: 0, width: 0, margin: 0 }
 
