@@ -1242,7 +1242,11 @@ class MessageBar:
 
 
 class Textbox:
-    """No documentation available.
+    """Create a text box.
+
+    The text box component enables a user to type text into an app.
+    It's typically used to capture a single line of text, but can be configured to capture multiple lines of text.
+    The text displays on the screen in a simple, uniform format.
     """
     def __init__(
             self,
@@ -1431,7 +1435,20 @@ class Textbox:
 
 
 class Checkbox:
-    """No documentation available.
+    """Create a checkbox.
+
+    A checkbox allows users to switch between two mutually exclusive options (checked or unchecked, on or off) through
+    a single click or tap. It can also be used to indicate a subordinate setting or preference when paired with another
+    component.
+
+    A checkbox is used to select or deselect action items. It can be used for a single item or for a list of multiple
+    items that a user can choose from. The component has two selection states: unselected and selected.
+
+    For a binary choice, the main difference between a checkbox and a toggle switch is that the checkbox is for status
+    and the toggle switch is for action.
+
+    Use multiple checkboxes for multi-select scenarios in which a user chooses one or more items from a group of
+    choices that are not mutually exclusive.
     """
     def __init__(
             self,
@@ -1520,7 +1537,14 @@ class Checkbox:
 
 
 class Toggle:
-    """No documentation available.
+    """Create a toggle.
+    Toggles represent a physical switch that allows users to turn things on or off.
+    Use toggles to present users with two mutually exclusive options (like on/off), where choosing an option results
+    in an immediate action.
+
+    Use a toggle for binary operations that take effect right after the user flips the Toggle.
+    For example, use a Toggle to turn services or hardware components on or off.
+    In other words, if a physical switch would work for the action, a Toggle is probably the best component to use.
     """
     def __init__(
             self,
@@ -1599,7 +1623,7 @@ class Toggle:
 
 
 class Choice:
-    """No documentation available.
+    """Create a choice for a checklist, choice group or dropdown.
     """
     def __init__(
             self,
@@ -1746,7 +1770,9 @@ class ChoiceGroup:
 
 
 class Checklist:
-    """No documentation available.
+    """Create a set of checkboxes.
+    Use this for multi-select scenarios in which a user chooses one or more items from a group of
+    choices that are not mutually exclusive.
     """
     def __init__(
             self,
@@ -1825,7 +1851,17 @@ class Checklist:
 
 
 class Dropdown:
-    """No documentation available.
+    """Create a dropdown.
+
+    A dropdown is a list in which the selected item is always visible, and the others are visible on demand by clicking
+    a drop-down button. They are used to simplify the design and make a choice within the UI. When closed, only the
+    selected item is visible. When users click the drop-down button, all the options become visible.
+
+    To change the value, users open the list and click another value or use the arrow keys (up and down) to
+    select a new value.
+
+    Note: Use either the 'value' parameter or the 'values' parameter. Setting the 'values' parameter renders a
+    multi-select dropdown.
     """
     def __init__(
             self,
@@ -1944,7 +1980,17 @@ class Dropdown:
 
 
 class Combobox:
-    """No documentation available.
+    """Create a combobox.
+
+    A combobox is a list in which the selected item is always visible, and the others are visible on demand by
+    clicking a drop-down button or by typing in the input.
+    They are used to simplify the design and make a choice within the UI.
+
+    When closed, only the selected item is visible.
+    When users click the drop-down button, all the options become visible.
+    To change the value, users open the list and click another value or use the arrow keys (up and down)
+    to select a new value.
+    When collapsed the user can select a new value by typing.
     """
     def __init__(
             self,
@@ -2043,7 +2089,20 @@ class Combobox:
 
 
 class Slider:
-    """No documentation available.
+    """Create a slider.
+
+    A slider is an element used to set a value. It provides a visual indication of adjustable content, as well as the
+    current setting in the total range of content. It is displayed as a horizontal track with options on either side.
+    A knob or lever is dragged to one end or the other to make the choice, indicating the current value.
+    Marks on the slider bar can show values and users can choose where they want to drag the knob or lever to
+    set the value.
+
+    A slider is a good choice when you know that users think of the value as a relative quantity, not a numeric value.
+    For example, users think about setting their audio volume to low or medium — not about setting the
+    value to two or five.
+
+    The default value of the slider will be zero or be constrained to the min and max values. The min will be returned
+    if the value is set under the min and the max will be returned if set higher than the max value.
     """
     def __init__(
             self,
@@ -2152,7 +2211,10 @@ class Slider:
 
 
 class Spinbox:
-    """No documentation available.
+    """Create a spinbox.
+
+    A spinbox allows the user to incrementally adjust a value in small steps.
+    It is mainly used for numeric values, but other values are supported too.
     """
     def __init__(
             self,
@@ -2251,7 +2313,9 @@ class Spinbox:
 
 
 class DatePicker:
-    """No documentation available.
+    """Create a date picker.
+
+    A date picker allows a user to pick a date value.
     """
     def __init__(
             self,
@@ -2340,7 +2404,10 @@ class DatePicker:
 
 
 class ColorPicker:
-    """No documentation available.
+    """Create a color picker.
+
+    A date picker allows a user to pick a color value.
+    If the 'choices' parameter is set, a swatch picker is displayed instead of the standard color picker.
     """
     def __init__(
             self,
@@ -2593,7 +2660,8 @@ class Buttons:
 
 
 class FileUpload:
-    """No documentation available.
+    """Create a file upload component.
+    A file upload component allows a user to browse, select and upload one or more files.
     """
     def __init__(
             self,
@@ -2772,7 +2840,7 @@ class IconTableCellType:
 
 
 class TableCellType:
-    """No documentation available.
+    """Defines cell content to be rendered instead of a simple text.
     """
     def __init__(
             self,
@@ -3214,7 +3282,7 @@ class Link:
 
 
 class Tab:
-    """No documentation available.
+    """Create a tab.
     """
     def __init__(
             self,
@@ -3322,7 +3390,9 @@ class Tabs:
 
 
 class Expander:
-    """No documentation available.
+    """Creates a new expander.
+
+    Expanders can be used to show or hide a group of related components.
     """
     def __init__(
             self,
@@ -3535,7 +3605,9 @@ class Template:
 
 
 class Picker:
-    """No documentation available.
+    """Create a picker.
+    Pickers are used to select one or more choices, such as tags or files, from a list.
+    Use a picker to allow the user to quickly search for or manage a few tags or files.
     """
     def __init__(
             self,
@@ -3757,7 +3829,7 @@ class RangeSlider:
 
 
 class Step:
-    """No documentation available.
+    """Create a step for a stepper.
     """
     def __init__(
             self,
